@@ -1,8 +1,21 @@
 {
   "name": "react-vite-ts-boilerplate",
+  "description": "Este es un Boilerplate para un proyecto en React usando Vite, Typescript, ESLint, Prettier, Husky, Commitlint y Standard-Version",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "keywords": [
+    "Boilerplate",
+    "Vite",
+    "Typescript",
+    "ESLint",
+    "Prettier",
+    "Husky",
+    "Commitlint",
+    "Standard-Version"
+  ],
+  "author": "Miguel Angel Durán Romero",
+  "license": "ISC",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

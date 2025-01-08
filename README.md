@@ -1,50 +1,106 @@
-# React + TypeScript + Vite
+# Plantilla Base para Proyectos en React con Vite y TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio es una plantilla base para proyectos de React utilizando Vite y TypeScript. Incluye herramientas de linting, formateo de código y control de versiones para garantizar las mejores prácticas de desarrollo.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18+**: Biblioteca para construir interfaces de usuario.
+- **TypeScript 5+**: Tipado estático para JavaScript.
+- **Vite**: Herramienta de desarrollo rápida para proyectos modernos.
+- **Prettier**: Formateo consistente del código.
+- **ESLint**: Linter para mantener un código limpio.
+- **Husky**: Hooks de Git para automatizar tareas.
+- **Commitlint**: Verifica que los mensajes de commit sigan las convenciones.
+- **Standard-Version**: Generación automática de versiones y changelogs.
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Sigue estos pasos para configurar el proyecto:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clona el repositorio:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+   ```bash
+   git clone https://github.com/migueddev/react-vite-ts-boilerplate.git
+   cd react-vite-ts-boilerplate
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Instala las dependencias
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+## Scripts
+
+A continuación, se detalla la funcionalidad de los scripts incluidos en el archivo `package.json`:
+
+### **Desarrollo y Construcción**
+
+- **`npm run dev`**:
+  Inicia el servidor de desarrollo con Vite. Utiliza este comando para trabajar en el proyecto en un entorno local.
+
+- **`npm run build`**:
+  Genera la versión optimizada para producción.
+
+  - Primero, compila los archivos TypeScript (`tsc -b`).
+  - Luego, ejecuta el proceso de construcción con Vite (`vite build`).
+
+- **`npm run preview`**:
+  Sirve la versión generada con `build` en un servidor local para realizar pruebas.
+
+### **Calidad del Código**
+
+- **`npm run lint`**:
+  Ejecuta ESLint para buscar y corregir errores en los archivos JavaScript, TypeScript, JSX y TSX.
+
+  - Opción `--fix`: Intenta corregir automáticamente los problemas detectados.
+
+- **`npm run prettier`**:
+  Aplica Prettier para formatear todo el código del proyecto.
+
+  - Opción `--write`: Sobrescribe los archivos con el formato adecuado.
+
+- **`npm run commit:pre`**:
+  Ejecuta Prettier y ESLint antes de hacer un commit, asegurando que el código esté limpio y formateado correctamente.
+
+### **Versionado**
+
+- **`npm run release`**:
+  Genera una nueva versión del proyecto utilizando `standard-version`. El nivel de versión (patch, minor o major) se determina automáticamente en base a los mensajes de commit.
+
+- **`npm run release:patch`**:
+  Genera una nueva versión incrementando el nivel **patch** (arreglos menores o sin romper compatibilidad).
+
+- **`npm run release:minor`**:
+  Genera una nueva versión incrementando el nivel **minor** (nueva funcionalidad que no rompe compatibilidad).
+
+- **`npm run release:major`**:
+  Genera una nueva versión incrementando el nivel **major** (cambios que rompen compatibilidad).
+
+### **Otros Scripts**
+
+- **`npm run prepare`**:
+  Configura los hooks de Husky automáticamente al ejecutar `npm install`.
+
+- **`npm run commitlint`**:
+  Verifica que el mensaje de commit siga las convenciones definidas por Commitlint.
+
+### **Uso General**
+
+- Para iniciar el desarrollo:
+
+  ```bash
+  npm run dev
+  ```
+
+## Contacto
+
+Conéctate conmigo en:
+
+- [LinkedIn](https://www.linkedin.com/in/miguel-duran-romero/)
+- [GitHub](https://github.com/migueddev)
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia ISC.
+Consulta el archivo [LICENSE](./LICENSE)
