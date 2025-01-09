@@ -1,1 +1,1 @@
-npm run commit:pre
+npm run lint-staged
